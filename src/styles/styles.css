@@ -1,0 +1,119 @@
+/* Reset dan gaya dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #4793af;
+  color: #8b322c;
+}
+
+header {
+  background-color: #4793af;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 1.8em;
+  font-weight: bold;
+}
+
+/* Struktur utama aplikasi */
+#app {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Pengaturan catatan */
+.notes-container,
+.archived-notes-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.note-item {
+  border: 2px solid #ffc470;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: #dd5746;
+  color: white;
+  border-radius: 8px;
+}
+
+.note-item h3 {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.note-item p {
+  margin-bottom: 10px;
+  font-size: 1em;
+}
+
+.note-item button {
+  align-self: end;
+  padding: 8px;
+  font-size: 0.9em;
+  background-color: #ffc470;
+}
+
+.note-item button:hover {
+  background-color: #bd8f4e;
+}
+
+/* Indikator Loading */
+.loading-container {
+  position: fixed; /* Memastikan loading screen tetap diatas */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; /* Pastikan di atas elemen lain */
+  overflow: hidden;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 8px solid #4793af; /* Warna indikator */
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsivitas */
+@media (min-width: 768px) {
+  /* Styling for memdia screens */
+  .notes-container,
+  .archived-notes-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Styling for larger screens */
+  .notes-container,
+  .archived-notes-container {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns on dekstop */
+  }
+}
